@@ -34,9 +34,11 @@ public class ProduitController {
 	public void uploadPhoto(MultipartFile file,@PathVariable("idProduit") Long idProduit) throws  Exception{
             Produit p=produitRepository.findById((idProduit)).get();
             System.out.println(p);
+            System.out.println(p);
             p.setPhoto(idProduit+".png");
             Files.write(Paths.get(System.getProperty("user.home")+"/ecom/produits/"+p.getPhoto()),file.getBytes());
             produitRepository.save(p);
+            
 	}
 	
 
