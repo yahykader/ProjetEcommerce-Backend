@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
@@ -25,6 +26,8 @@ public class Produit implements Serializable{
 	private boolean promotion;
 	private boolean disponible;
 	private String photo;
+	@Transient
+	private int quantity;
 	@ManyToOne
 	@JoinColumn(name="idCategorie")
 	private Categorie categorie;
